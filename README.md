@@ -30,6 +30,7 @@ PART 5 HIGH-PERFORMANCE COMPUTING RECIPES
 - Brute Force and Quantum Computers
 - High-Performance Computational Intelligence and Forecasting Technologies
 
+___ 
 
 I'm going to throw a wrench in my previous thesis, on which explainability was set on a basis of two main things, one was on an individuals ability to understand the why of a problem and the second was on an individuals ability to fully articulate a model between the points of x and y. There may be a caveat to this. And that is that AI doesn't necessarily need to tell the truth, it just needs to be able to tell a convincing story. The understanding is not just about having to pin down a machine learning algorithm and corner it in order to understand what is going on. Understanding is about being able to convince ourselves that a story is true. I don't bring this up to stray away from the true why, but to add further explaination to the why. The why is multifaceted. It is the tie between the final product, the functional mechanisms, and the raw materials. And the understanding that the truth may not be the truth, but merely an extremely convincing story. 
 
