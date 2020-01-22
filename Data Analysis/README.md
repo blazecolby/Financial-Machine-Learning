@@ -1,4 +1,7 @@
-Data Analysis
+# Data Analysis
+
+## Financial Data Structures
+- Produce matrix X of features out of unstructured data. Unsupervised methods applied. 
 
 Sources:
 - CME
@@ -85,6 +88,55 @@ Event-Based Sampling
 The CUSUM Filter: quality control method
 - detects shift in mean value of measured quantity from target value.
 
+
+## Labeling
+- Methods for labeling in order to use supervised methods.
+ 
+FIXED-TIME HORIZON METHOD
+- Uses time bars. Time bars do not exhibit good statistical props. 
+ - Label w/ varying threshold. Estimated w/ a rolling exponentially weighted std of returns.
+ - Use Volume or dollar bars, as their volatilities are much closer to constant (homoscedasticity).
+ - Account for missing path followed by prices (i.e. doesn't account for stopping-out).
+ 
+COMPUTING DYNAMIC THRESHOLDS
+- Set profit taking and stop-loss limits that are a function of risks in a bet. 
+- Compute daily volatility estimates at intraday estimation points. 
+
+- Use output of function to set default profit taking/stop-loss limits through rest of chapter.
+
+TRIPLE-BARRIER METHOD: Label observation according to first barrier touched out of three barriers.
+- Set two horizontal barriers and one vertical barrier.
+- Horizontals = profit-taking and stoploss limits, dynamic function of estimated volatility.
+- Vertical = bars elapsed since position was taken (expiration).
+ - upper barrier: 1
+ - lower barrier: -1
+ - vertical barrier: 0
+ 
+Useful configurations:
+ - (1,1,1): realize profit w/ max tolerance for losses and holding period.
+ - (0,1,1): exit after number of bars unless stopped-out.
+ - (1,1,0): take profit if we're not stopped-out.
+ Less useful configurations:
+ - (0,0,1): equivalent to fixed-time horizon method. Apply to volume/dollar/info-bars.
+ - (1,0,1): held until profit or max period met. Disregard intermediate realised losses. 
+ - (1,0,0): hold to profit.
+ Illogical configurations:
+ - (0,1,0): hold until stopped-out
+ - (0,0,0): position locked forever.
+
+LEARNING SIDE AND SIZE
+- Use when there is no model to find sign. i.e. symmetric/no horizontal barriers.
+
+META-LABELING
+- Suppose you have a model that provides the sides(long, short) but not size(amount to bet). 
+- Build secondary model that learns to use primary exogenous model; like a decorator.
+- Create variables that contains sides of bet, now it's possible to descriminate b/w profit taking and stop loss.
+- Binary label created(bet or pass), then size is derived. 
+- Binary classification problems present a trade-off b/w type-1/2 errors. 
+
+THE QUANTAMENTAL WAY
+
+DROPPING UNNECESSARY LABELS
 
 
 
