@@ -86,3 +86,36 @@ Framework-specific approaches need to be developed. That is the focus of this bo
 Backtest overfitting is our equivalent to “P versus NP”.
 
 U.S. National Laboratories are among the research centers with the longest track record and experience in using ML. 
+
+
+When looking at machine learning in finance, reading Advances in Financial Machine Learning by Marcos Lopez De Prado is a good place to start. This is a good source for explainability in a domain specific context due to the fact that most, if not all, of the information in the book is based on both academic rigor and practicality through application from AUM. 
+
+When we look at a deep learning model and we take an algorithm like lime or like Shap values, we are essentially taking an abstraction of the inner workings of a model. Each algorithm giving a slightly different interpretation or perspective on the data from that model. When we look at these examples they are domain agnostic, and therefore add a layer of abstraction away from the nuances that may come from explainability from a specific domain or a specific exmample.
+
+It's important to reiterate that interpretability is different than explainability, and that not all explainable models are interpretable. 
+
+Let's dive in to some examples from De Prado to get a better sense of this. 
+
+First, let's go straight to the meat on the bone, the black box. 
+
+We can further pin down the black box by looking at feature importances. Notably, understanding feature importance opens up the
+proverbial black box.
+
+- We can gain insight into the patterns identified by the classifier if we understand what source of information is indispensable to it. 
+
+Yes, the algorithm has learned without us directing the process.
+- But that does not mean that we cannot (or should not) take a look at what the algorithm has found.
+    - This in and of itself is what explainability is. Finding any means possible to better understand what's happening and what's being said of an ml algorithm. 
+    
+Once we know what features are important, we can learn more by running expirements. 
+Here are some examples of questions/expirements provided by Prado:
+- Are these features important all the time, or only in some specific environments? 
+- What triggers a change in importance over time? Can those regime switches be predicted?
+- Are those important features also relevant to other related financial instruments?
+- Are they relevant to other asset classes?
+- What are the most relevant features across all financial instruments?
+- What is the subset of features with the highest rank correlation across the entire investment universe?
+
+"Backtesting is not a research tool. Feature importance is."
+- " Marcos Lopez de Prado "
+- Advances in Financial Machine Learning (2018)
