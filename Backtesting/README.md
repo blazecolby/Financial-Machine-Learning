@@ -29,7 +29,7 @@ SIZE DISCRETIZATION
 - Discretization allows for minimizing excess turnover. 
 
 DYNAMIC BET SIZES AND LIMIT PRICES
-- Adjust bet sizes as market prices and forecast prices fluctuate. In this, order limit price will be derived.
+- Adjust bet sizes as market prices and forecast prices fluctuate. From this, order limit price will be derived.
 - 
 
 ## Dangers of Backtesting
