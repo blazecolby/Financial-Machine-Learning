@@ -91,75 +91,75 @@ THE IMPORTANCE OF FEATURE IMPORTANCE
 - Substitution takes place when estimated importance of one feature is reduced by presence of other related features
 
 - Substitution effects = multi-collinearity (reduce with PCA)
- - Multi-collinearity = inter-associations among the independent variables.
+  - Multi-collinearity = inter-associations among the independent variables.
  
 - Mean decrease impurity (MDI), (fast) (only tree classifiers)
- - is an explanatory-importance (in-sample, IS) method:
-  - Each node in each decision tree (dt), selected feature splits to subset so impurity is decreased. 
-  - Can derive for each dt, amount of overall impurity decrease can be assigned to each feature. 
+  - is an explanatory-importance (in-sample, IS) method:
+    - Each node in each decision tree (dt), selected feature splits to subset so impurity is decreased. 
+    - Can derive for each dt, amount of overall impurity decrease can be assigned to each feature. 
   - Can average values across all estimators and rank features accordingly.
-   - Masking effects occur when some features systematically ignored by tree. 1 feature considered p/ level.
-   - (IS) Every feature will have some importance, even if they have no predictive power whatsoever.
-   - Can't be generalized to non-tree classifier
-   - Doesn't address substitution effects. 
-   - Biased towards some predictor variables.
+    - Masking effects occur when some features systematically ignored by tree. 1 feature considered p/ level.
+    - (IS) Every feature will have some importance, even if they have no predictive power whatsoever.
+    - Can't be generalized to non-tree classifier
+    - Doesn't address substitution effects. 
+    - Biased towards some predictor variables.
 
 - Mean decrease accuracy (MDA): (slow) (any classifier)
- - Predictive-importance (out-of-sample, OOS) method.
-  - Fit classifier.
-  - Derive performance OOS based on performance score.
-  - Permutates each column of feature matrix.
-  - Importance of feature is a function of loss in performance caused by column’s permutation.
-   - Not limited to accuracy as sole performance metric.
-   - Susceptible to substitution effects in presence of correlated features. Makes two identical features irrelevant
-   - May conclude all features as unimportant.
+  - Predictive-importance (out-of-sample, OOS) method.
+    - Fit classifier.
+    - Derive performance OOS based on performance score.
+    - Permutates each column of feature matrix.
+    - Importance of feature is a function of loss in performance caused by column’s permutation.
+      - Not limited to accuracy as sole performance metric.
+      - Susceptible to substitution effects in presence of correlated features. Makes two identical features irrelevant
+      - May conclude all features as unimportant.
 
 
 FEATURE IMPORTANCE WITHOUT SUBSTITUTION EFFECTS
-- Substitution tends to remove important features that happen to redundant. May lead to bad assumptions. 
+- Substitution tends to remove important features that happen to be redundant. May lead to bad assumptions. 
 
 - Single Feature Importance (SFI): (complement to MDI & MDA)
- - cross-section predictive-importance (OOS) method.
-  - Compute OOS performance score of each feature in isolation.
-   - Can be applied to any classifier.
-   - Not limited to accuracy.
-   - No substitution effects take place,since only one feature is taken into consideration at a time.
-   - Can conclude all features are unimportant, because performance is evaluated via OOS CV.
-  - SFI Limitation is classifier w/ two features can perform better than bagging of two single-feature classifiers.
-   - Joint effects and hierarchical importance are lost in SFI.
+  - cross-section predictive-importance (OOS) method.
+    - Compute OOS performance score of each feature in isolation.
+      - Can be applied to any classifier.
+      - Not limited to accuracy.
+      - No substitution effects take place, since only one feature is taken into consideration at a time.
+      - May conclude all features are unimportant, because performance is evaluated via OOS CV.
+  - SFI Limitation is classifier w/ two features, may perform better than bagging of two single-feature classifiers.
+     - Joint effects and hierarchical importance are lost in SFI.
    
 - Orthogonal Features
- - Substitution effects dilute the importance of features mea- sured by MDI.
- - Underestimate the importance of features measured by MDA.
+   - Substitution effects dilute the importance of features mea- sured by MDI.
+   - Underestimate the importance of features measured by MDA.
 - Partial solution is to orthogonalize features.
 - PCA minimizes orthogonalization
 
 PARALLELIZED VS. STACKED FEATURE IMPORTANCE
 -  Two research approaches to feature importance:
- - PARALLELIZED:
- - For each security in an investment universe, form a dataset and derive the feature importance in parallel.
-  - Important features across a variety of instruments are more likely to be associated with underlying phenoma.
-   - Particularly when feature importances exhibit high rank correlation across criteria.
-   - Fast (parallizable).
+  - PARALLELIZED:
+  - For each security in an investment universe, form a dataset and derive the feature importance in parallel.
+    - Important features across a variety of instruments are more likely to be associated with underlying phenoma.
+      - Particularly when feature importances exhibit high rank correlation across criteria.
+      - Fast (parallizable).
  - STACKED: (computationally expensive)
  - Stack all datasets into one dataset. 
-  - Distributional homogeneity = importance across all instruments simultaneously.
-  - Classifier fit on larger dataset.
-  - Importance is derived directly, weighting scheme not needed for combining results.
-  - More general and less biased. 
-  - Because importance scores aren't averaged, substitution effects aren't minimized.
+   - Distributional homogeneity = importance across all instruments simultaneously.
+   - Classifier fit on larger dataset.
+   - Importance is derived directly, weighting scheme not needed for combining results.
+   - More general and less biased. 
+   - Because importance scores aren't averaged, substitution effects aren't minimized.
 
 -- Technique for expanding classes:
   - super() class extends base functionality of another class. Enables use of another classes methods. 
 
 ## Hyper-Parameter Tuning with Cross-Validation
 - essential step in fitting. 
- - Special attention is placed on cross-validating any tuned hyper-parameter.
- - Purged k-fold CV may be used to tune hyper-parameters.
+  - Special attention is placed on cross-validating any tuned hyper-parameter.
+  - Purged k-fold CV may be used to tune hyper-parameters.
  
 GRID SEARCH CROSS-VALIDATION
 - Conducts exhaustive search for combination of parameters that maximizes CV performance.
- - Reasonable first approach if you don't know the underlying structure of data. 
+  - Reasonable first approach if you don't know the underlying structure of data. 
  
 RANDOMIZED SEARCH CROSS-VALIDATION
 - For algorithms that have larger number of parameters.
@@ -167,8 +167,8 @@ RANDOMIZED SEARCH CROSS-VALIDATION
 
 - Log-Uniform Distribution (do not respond linearly) == logarithm of draws is uniformly distributed.
 - Some algorithms only accept non-negative hyper-parameters.
- - C in SVC classifier
- - Gamma in RBF kernel 
+  - C in SVC classifier
+  - Gamma in RBF kernel 
 
 SCORING AND HYPER-PARAMETER TUNING (Log loss/Cross-entropy loss/Logistic regression loss):
 - neg_log_loss for scoring in financial ML applications is better. 
