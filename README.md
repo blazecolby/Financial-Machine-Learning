@@ -98,8 +98,7 @@ Let's dive in to some examples from De Prado to get a better sense of this.
 
 First, let's go straight to the meat on the bone, the black box. 
 
-We can further pin down the black box by looking at feature importances. Notably, understanding feature importance opens up the
-proverbial black box.
+We can further pin down the black box by looking at feature importances. Notably, understanding feature importance opens up the proverbial black box.
 
 - We can gain insight into the patterns identified by the classifier if we understand what source of information is indispensable to it. 
 
