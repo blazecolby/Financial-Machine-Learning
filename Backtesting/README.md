@@ -43,3 +43,22 @@ DYNAMIC BET SIZES AND LIMIT PRICES
 ## Understanding Strategy Risk
 
 ## Machine Learning Asset Allocation
+
+
+
+
+
+Let's take a look at three common areas in the general machine learning process in finance, then pick out one common mistake from each of these areas. The areas are data processing, data classification, and data evaluation. By viewing these common problems one may preview both the mistake and the solutions claim. Arguably inherent in each solutions claim is its' explainability.
+
+1) Data processing introduces fractional differentiation, which solves the problem of integer differentiation.
+2) Classification introduces meta-labeling, which solves the problem of learning side and size simultaneously.
+3) Evaluation introduces purging and embargoing, which solves the problem of cross-validation leakage. 
+
+Overshadowing and complementing the aforementioned solution claims and problems is that explainability is an extension of the ability of a financial investment research team to come up with logical investment strategies.
+
+
+
+
+
+
+
